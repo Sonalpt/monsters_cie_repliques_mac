@@ -81,7 +81,7 @@ List<Replique> repliques = [
       nomPersonnage: "Bob Razowski",
       texteReplique: "je suis dans le potage",
       audio: "audio/dans-le-potage.mp3"),
-      Replique(
+  Replique(
       backgroundColor: 0xFF9CFF6A,
       shadowColor: 0xFF5AFF4A,
       imageAssetPath: "assets/images/Bob.jpg",

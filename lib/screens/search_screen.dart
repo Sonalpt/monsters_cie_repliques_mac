@@ -21,15 +21,16 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     // media queries
     final mediaQueryData = MediaQuery.of(context);
     final screenWidth = mediaQueryData.size.width;
     final screenHeight = mediaQueryData.size.height;
     final blockSizeHorizontal = screenWidth / 100;
     final blockSizeVertical = screenHeight / 100;
-    final safeAreaHorizontal = mediaQueryData.padding.left + mediaQueryData.padding.right;
-    final safeAreaVertical = mediaQueryData.padding.top + mediaQueryData.padding.bottom;
+    final safeAreaHorizontal =
+        mediaQueryData.padding.left + mediaQueryData.padding.right;
+    final safeAreaVertical =
+        mediaQueryData.padding.top + mediaQueryData.padding.bottom;
     final safeWidth = (screenWidth - safeAreaHorizontal) / 100;
     final safeHeight = (screenHeight - safeAreaVertical) / 30;
     final appBarHeight = AppBar().preferredSize.height;
@@ -43,157 +44,162 @@ class _SearchScreenState extends State<SearchScreen> {
 
     return Scaffold(
       backgroundColor: Color(0xFF1B032C),
-      appBar: myAppBar(context, onTapAction: (destinationPage) {  }),
+      appBar: myAppBar(context, onTapAction: (destinationPage) {}),
       body: Center(
-        child: selectedCharacterName.isNotEmpty ? ListView.builder(
-    itemCount: repliques.where((r) => r.nomPersonnage == selectedCharacterName).length,
-    itemBuilder: (BuildContext context, int index) {
-      final repliquesFiltrees = repliques.where((r) => r.nomPersonnage == selectedCharacterName).toList();
-      return Column(
-        children: [
-          SizedBox(height: 15),
-          RepliqueWidget(
-            backgroundColor: repliquesFiltrees[index].backgroundColor,
-            shadowColor: repliquesFiltrees[index].shadowColor,
-            imageAssetPath: repliquesFiltrees[index].imageAssetPath,
-            nomPersonnage: repliquesFiltrees[index].nomPersonnage,
-            texteReplique: repliquesFiltrees[index].texteReplique,
-            audio: repliquesFiltrees[index].audio,
-          ),
-          SizedBox(height: 5),
-        ],
-      );
-    },
-  )
-
-: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(height: 25),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                GestureDetector(
-                  onTap: () => _onCharacterPressed('Sullivan'),
-                  child:Container(
-                  width: screenHeight / 6,
-                  height: screenHeight / 6,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/Sully.jpg'),
-                      fit: BoxFit.cover,
-                    ),
+        child: selectedCharacterName.isNotEmpty
+            ? ListView.builder(
+                itemCount: repliques
+                    .where((r) => r.nomPersonnage == selectedCharacterName)
+                    .length,
+                itemBuilder: (BuildContext context, int index) {
+                  final repliquesFiltrees = repliques
+                      .where((r) => r.nomPersonnage == selectedCharacterName)
+                      .toList();
+                  return Column(
+                    children: [
+                      SizedBox(height: 15),
+                      RepliqueWidget(
+                        backgroundColor:
+                            repliquesFiltrees[index].backgroundColor,
+                        shadowColor: repliquesFiltrees[index].shadowColor,
+                        imageAssetPath: repliquesFiltrees[index].imageAssetPath,
+                        nomPersonnage: repliquesFiltrees[index].nomPersonnage,
+                        texteReplique: repliquesFiltrees[index].texteReplique,
+                        audio: repliquesFiltrees[index].audio,
+                      ),
+                      SizedBox(height: 5),
+                    ],
+                  );
+                },
+              )
+            : Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(height: 25),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      GestureDetector(
+                        onTap: () => _onCharacterPressed('Sullivan'),
+                        child: Container(
+                          width: screenHeight / 6,
+                          height: screenHeight / 6,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                              image: AssetImage('assets/images/Sully.jpg'),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () => _onCharacterPressed('Bob Razowski'),
+                        child: Container(
+                          width: screenHeight / 6,
+                          height: screenHeight / 6,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                              image: AssetImage('assets/images/Bob.jpg'),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-                ),
-                GestureDetector(
-                  onTap: () => _onCharacterPressed('Bob Razowski'),
-                  child: Container(
-                  width: screenHeight / 6,
-                  height: screenHeight / 6,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/Bob.jpg'),
-                      fit: BoxFit.cover,
-                    ),
+                  SizedBox(height: 25),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      GestureDetector(
+                        onTap: () => _onCharacterPressed('Bouh'),
+                        child: Container(
+                          width: screenHeight / 6,
+                          height: screenHeight / 6,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                              image: AssetImage('assets/images/Bouh.jpg'),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () => _onCharacterPressed('Leon'),
+                        child: Container(
+                          width: screenHeight / 6,
+                          height: screenHeight / 6,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                              image: AssetImage('assets/images/Leon.jpg'),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-                ),
-              ],
-            ),
-            SizedBox(height: 25),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                GestureDetector(
-                  onTap: () => _onCharacterPressed('Bouh'),
-                  child: Container(
-                  width: screenHeight / 6,
-                  height: screenHeight / 6,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/Bouh.jpg'),
-                      fit: BoxFit.cover,
-                    ),
+                  SizedBox(height: 25),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      GestureDetector(
+                        onTap: () => _onCharacterPressed('Directeur'),
+                        child: Container(
+                          width: screenHeight / 6,
+                          height: screenHeight / 6,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                              image: AssetImage('assets/images/Directeur.jpg'),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () => _onCharacterPressed('Celia'),
+                        child: Container(
+                          width: screenHeight / 6,
+                          height: screenHeight / 6,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                              image: AssetImage('assets/images/Celia.jpg'),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-                ),
-                GestureDetector(
-                  onTap: () => _onCharacterPressed('Leon'),
-                  child: Container(
-                  width: screenHeight / 6,
-                  height: screenHeight / 6,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/Leon.jpg'),
-                      fit: BoxFit.cover,
-                    ),
+                  SizedBox(height: 25),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                        onTap: () => _onCharacterPressed('Germaine'),
+                        child: Container(
+                          width: screenHeight / 6,
+                          height: screenHeight / 6,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                              image: AssetImage('assets/images/Germaine.jpg'),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
                   ),
-                ),
-                ),
-              ],
-            ),
-            SizedBox(height: 25),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                GestureDetector(
-                  onTap: () => _onCharacterPressed('Directeur'),
-                  child: Container(
-                  width: screenHeight / 6,
-                  height: screenHeight / 6,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/Directeur.jpg'),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                ),
-                GestureDetector(
-                  onTap: () => _onCharacterPressed('Celia'),
-                  child: Container(
-                  width: screenHeight / 6,
-                  height: screenHeight / 6,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/Celia.jpg'),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                ),
-              ],
-            ),
-            SizedBox(height: 25),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                GestureDetector(
-                  onTap: () => _onCharacterPressed('Germaine'),
-                  child: Container(
-                  width: screenHeight / 6,
-                  height: screenHeight / 6,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/Germaine.jpg'),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                )
-              ],
-            ),
-            SizedBox(height: 25),
-          ],
-        ),
+                  SizedBox(height: 25),
+                ],
+              ),
       ),
     );
   }

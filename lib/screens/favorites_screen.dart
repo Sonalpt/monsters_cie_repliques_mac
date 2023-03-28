@@ -6,8 +6,6 @@ import "../replique_data.dart";
 import '../widgets/app_bar.dart';
 import '../helpers/database_helper.dart';
 
-
-
 class FavoritesPage extends StatefulWidget {
   const FavoritesPage({Key? key}) : super(key: key);
 
@@ -34,15 +32,17 @@ class _FavoritesPageState extends State<FavoritesPage> {
 
   @override
   Widget build(BuildContext context) {
-    //media queries 
+    //media queries
 
     final mediaQueryData = MediaQuery.of(context);
     final screenWidth = mediaQueryData.size.width;
     final screenHeight = mediaQueryData.size.height;
     final blockSizeHorizontal = screenWidth / 100;
     final blockSizeVertical = screenHeight / 100;
-    final safeAreaHorizontal = mediaQueryData.padding.left + mediaQueryData.padding.right;
-    final safeAreaVertical = mediaQueryData.padding.top + mediaQueryData.padding.bottom;
+    final safeAreaHorizontal =
+        mediaQueryData.padding.left + mediaQueryData.padding.right;
+    final safeAreaVertical =
+        mediaQueryData.padding.top + mediaQueryData.padding.bottom;
     final safeWidth = (screenWidth - safeAreaHorizontal) / 100;
     final safeHeight = (screenHeight - safeAreaVertical) / 10;
     final appBarHeight = AppBar().preferredSize.height;
@@ -55,7 +55,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
     //end of media queries
     return Scaffold(
       backgroundColor: Color(0xFF1B032C),
-      appBar: myAppBar(context, onTapAction: (destinationPage) {  }),
+      appBar: myAppBar(context, onTapAction: (destinationPage) {}),
       body: ListView.builder(
         itemCount: _favoris.length,
         itemBuilder: (context, index) {
@@ -73,7 +73,6 @@ class _FavoritesPageState extends State<FavoritesPage> {
           );
         },
       ),
-      
     );
   }
 }

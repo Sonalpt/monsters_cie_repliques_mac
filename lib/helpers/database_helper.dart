@@ -53,9 +53,9 @@ class DatabaseHelper {
   // Helper methods
 
   Future<List<Map<String, dynamic>>> queryFavoris() async {
-  final db = await instance.database;
-  return await db.query(table, where: 'favori = ?', whereArgs: [1]);
-}
+    final db = await instance.database;
+    return await db.query(table, where: 'favori = ?', whereArgs: [1]);
+  }
 
   // Insert a row
   Future<int> insert(Map<String, dynamic> row) async {

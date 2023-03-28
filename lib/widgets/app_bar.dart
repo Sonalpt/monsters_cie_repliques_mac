@@ -4,27 +4,29 @@ import 'package:flutter/material.dart';
 import 'package:monstres_et_cie_les_repliques/screens/favorites_screen.dart';
 import 'package:monstres_et_cie_les_repliques/screens/search_screen.dart';
 
-AppBar myAppBar(BuildContext context, {required Function()? onTapAction(destinationPage)}) {
-  
-  //media queries 
+AppBar myAppBar(BuildContext context,
+    {required Function()? onTapAction(destinationPage)}) {
+  //media queries
 
-    final mediaQueryData = MediaQuery.of(context);
-    final screenWidth = mediaQueryData.size.width;
-    final screenHeight = mediaQueryData.size.height;
-    final blockSizeHorizontal = screenWidth / 100;
-    final blockSizeVertical = screenHeight / 100;
-    final safeAreaHorizontal = mediaQueryData.padding.left + mediaQueryData.padding.right;
-    final safeAreaVertical = mediaQueryData.padding.top + mediaQueryData.padding.bottom;
-    final safeWidth = (screenWidth - safeAreaHorizontal) / 100;
-    final safeHeight = (screenHeight - safeAreaVertical) / 30;
-    final appBarHeight = AppBar().preferredSize.height;
+  final mediaQueryData = MediaQuery.of(context);
+  final screenWidth = mediaQueryData.size.width;
+  final screenHeight = mediaQueryData.size.height;
+  final blockSizeHorizontal = screenWidth / 100;
+  final blockSizeVertical = screenHeight / 100;
+  final safeAreaHorizontal =
+      mediaQueryData.padding.left + mediaQueryData.padding.right;
+  final safeAreaVertical =
+      mediaQueryData.padding.top + mediaQueryData.padding.bottom;
+  final safeWidth = (screenWidth - safeAreaHorizontal) / 100;
+  final safeHeight = (screenHeight - safeAreaVertical) / 30;
+  final appBarHeight = AppBar().preferredSize.height;
 
-    final double myFontSize = safeWidth * 5;
-    final double myPadding = safeHeight * 2;
-    final double myIconSize = safeHeight * 4;
-    final double myMargin = safeWidth * 2;
+  final double myFontSize = safeWidth * 5;
+  final double myPadding = safeHeight * 2;
+  final double myIconSize = safeHeight * 4;
+  final double myMargin = safeWidth * 2;
 
-    //end of media queries
+  //end of media queries
 
   return AppBar(
     backgroundColor: Color(0xFF1B032C),
@@ -102,10 +104,10 @@ AppBar myAppBar(BuildContext context, {required Function()? onTapAction(destinat
         SizedBox(width: 15),
         GestureDetector(
           onTap: () {
-        if (onTapAction != null) {
-          onTapAction(SearchScreen());
-        }
-      },
+            if (onTapAction != null) {
+              onTapAction(SearchScreen());
+            }
+          },
           child: Padding(
             padding: const EdgeInsets.only(top: 10.0, left: 20.0),
             child: Image.asset(
@@ -117,10 +119,10 @@ AppBar myAppBar(BuildContext context, {required Function()? onTapAction(destinat
         ),
         GestureDetector(
           onTap: () {
-        if (onTapAction != null) {
-          onTapAction(FavoritesPage());
-        }
-      },
+            if (onTapAction != null) {
+              onTapAction(FavoritesPage());
+            }
+          },
           child: Padding(
             padding: const EdgeInsets.only(top: 10.0),
             child: Image.asset(

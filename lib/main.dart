@@ -82,7 +82,6 @@ class _MonstresCieRepliquesAppState extends State<MonstresCieRepliquesApp> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -92,14 +91,13 @@ class _MonstresCieRepliquesAppState extends State<MonstresCieRepliquesApp> {
           extendBody: true,
           appBar: myAppBar(
             context,
-    onTapAction: (destinationPage) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => destinationPage),
-      );
-    },
-  ),
-
+            onTapAction: (destinationPage) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => destinationPage),
+              );
+            },
+          ),
           body: Center(
             child: _isPlaying
                 ? Stack(
